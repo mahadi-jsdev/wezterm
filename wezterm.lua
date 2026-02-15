@@ -2,12 +2,17 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- --- Appearance ---
-config.color_scheme = "Gruvbox dark, hard (base16)" -- One of 1000+ built-ins
+config.color_scheme = "Gruvbox dark, hard (base16)"
 config.font = wezterm.font("JetBrains Mono Nerd Font")
 config.font_size = 13.0
 config.window_background_opacity = 1
-config.macos_window_background_blur = 10 -- macOS only
-config.window_decorations = "RESIZE" -- Cleaner title bar
+config.macos_window_background_blur = 15
+config.window_decorations = "RESIZE"
+config.inactive_pane_hsb = {
+	hue = 1.0,
+	saturation = 0.9,
+	brightness = 0.8,
+}
 
 -- remove side padding
 config.window_padding = {
@@ -17,11 +22,8 @@ config.window_padding = {
 	bottom = 0,
 }
 
--- --- Tab Bar ---
-config.enable_tab_bar = true
-config.hide_tab_bar_if_only_one_tab = true
-config.use_fancy_tab_bar = false
-config.tab_bar_at_bottom = true
+-- --- Tab Bar (disabled - using tmux) ---
+config.enable_tab_bar = false
 
 -- --- Performance ---
 config.front_end = "WebGpu" -- Faster rendering on modern GPUs
