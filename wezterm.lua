@@ -22,8 +22,18 @@ config.window_padding = {
 	bottom = 0,
 }
 
--- --- Tab Bar (disabled - using tmux) ---
+--- Tab Bar ---
 config.enable_tab_bar = false
+
+-- keymaps
+config.keys = {
+	-- Show the Launcher (Tab/Pane picker)
+	{
+		key = "l",
+		mods = "SHIFT|CTRL",
+		action = wezterm.action.ShowLauncherArgs({ flags = "TABS" }),
+	},
+}
 
 -- --- Performance ---
 config.front_end = "WebGpu" -- Faster rendering on modern GPUs
