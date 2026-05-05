@@ -2,10 +2,50 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- --- Appearance ---
-config.color_scheme = "Catppuccin Mocha"
+local ashes = {
+  foreground = "#c7ccd1",
+  background = "#1c2023",
+  cursor_bg = "#c7ccd1",
+  cursor_fg = "#1c2023",
+  cursor_border = "#c7ccd1",
+  selection_fg = "#c7ccd1",
+  selection_bg = "#303437",
+  scrollbar_thumb = "#44484b",
+  split = "#303437",
+  ansi = {
+    "#1c2023",
+    "#c7ae95",
+    "#95c7ae",
+    "#aec795",
+    "#ae95c7",
+    "#c795ae",
+    "#95aec7",
+    "#c7ccd1",
+  },
+  brights = {
+    "#44484b",
+    "#c7ae95",
+    "#95c7ae",
+    "#aec795",
+    "#ae95c7",
+    "#c795ae",
+    "#95aec7",
+    "#f3f4f5",
+  },
+  tab_bar = {
+    background = "#1c2023",
+    active_tab = { bg_color = "#272b2e", fg_color = "#c7ccd1" },
+    inactive_tab = { bg_color = "#1c2023", fg_color = "#adb3ba" },
+    inactive_tab_hover = { bg_color = "#303437", fg_color = "#c7ccd1" },
+    new_tab = { bg_color = "#1c2023", fg_color = "#adb3ba" },
+    new_tab_hover = { bg_color = "#303437", fg_color = "#c7ccd1" },
+  },
+}
+
+config.colors = ashes
 config.font = wezterm.font("JetBrains Mono Nerd Font")
 config.font_size = 13.0
-config.window_background_opacity = 0.8
+config.window_background_opacity = 1
 config.window_decorations = "RESIZE"
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
@@ -18,7 +58,7 @@ local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabl
 
 tabline.setup({
   options = {
-    theme = config.color_scheme,
+    theme = ashes,
     icons_enabled = true,
     tabs_enabled = true,
     section_separators = "",
